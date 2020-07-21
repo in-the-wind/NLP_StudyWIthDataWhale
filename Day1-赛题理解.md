@@ -91,3 +91,5 @@ Bert是高配款的词向量，具有强大的建模学习能力。
 
 
 接下来，我会跟着这几种解决思路逐渐地学习、掌握这几种方案。
+
+[另一个可参考的文本分类博客，讲解了包括但不限于TF-IDF,Word Vector的文本分类实现](https://www.kesci.com/home/project/5be7e948954d6e0010632ef2/code)
