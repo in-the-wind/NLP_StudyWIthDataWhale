@@ -37,7 +37,7 @@ GridSearchCV可以保证在指定的参数范围内找到精度最高的参数�
 
 例如，对于单个的学习率的设置:
 
-![image-20200721222154030](F:\tf2\image-20200721222154030.png)
+![image-20200721222154030](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721233813475.png)
 
 这里一个超参数我们就需要一个for循环，如果还有其他的超参数，就需要自己再加多个for循环，显然是很不方便。
 
@@ -62,7 +62,7 @@ sklearn提供了一个`Randomizedsearchcv`的方法来进行超参数的搜索�
 
 [TensorFlow中提供的转化为scikit_learn model的接口](https://www.tensorflow.org/api_docs/python/tf/keras/wrappers/scikit_learn/KerasRegressor)
 
-![image-20200721233442552](F:\tf2\image-20200721233442552.png)
+![image-20200721233442552](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721234340903.png)
 
 <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">分别为分类任务和回归任务各自提供了一个转化的API</center>
 
@@ -70,15 +70,15 @@ sklearn提供了一个`Randomizedsearchcv`的方法来进行超参数的搜索�
 
 为了转化为sklearn model，我们首先需要写一个build_model函数用来表示模型是如何建立的。
 
-![image-20200721233813475](F:\tf2\image-20200721233813475.png)
+![image-20200721233813475](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721233442552.png)
 
-![image-20200721234340903](F:\tf2\image-20200721234340903.png)
+![image-20200721234340903](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721234705451.png)
 
 建立好了build_model后，就可以调用刚刚看的接口，生成sklearn的model。
 
 通过调用fit，并用history记录过程中的值。
 
-![image-20200721234705451](F:\tf2\image-20200721234705451.png)
+![image-20200721234705451](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721235355442.png)
 
 ### 定义参数集合
 
@@ -92,7 +92,7 @@ sklearn提供了一个`Randomizedsearchcv`的方法来进行超参数的搜索�
 
 `learning_rate`:学习率
 
-![image-20200721235355442](F:\tf2\image-20200721235355442.png)
+![image-20200721235355442](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721235736763.png)
 
 
 
@@ -104,7 +104,7 @@ sklearn提供了一个`Randomizedsearchcv`的方法来进行超参数的搜索�
 
 如果想具体看一下大概是怎样的，我们设置生成10个数，就会得到下图中的结果
 
-![image-20200721235736763](F:\tf2\image-20200721235736763.png)
+![image-20200721235736763](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200721222154030.png)
 
 ### 进行搜索
 
@@ -169,7 +169,7 @@ print(random_search_cv.best_score_)
 print(random_search_cv.best_estimator_)
 ```
 
-![image-20200722000526847](F:\tf2\image-20200722000526847.png)
+![image-20200722000526847](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200722000600040.png)
 
 `best_estimator_.model`通过该属性即可获取真正的model，这个model已经是tf的model而不是sklearn的model
 
@@ -178,7 +178,7 @@ model = random_search_cv.best_estimator_.model
 model.evaluate(x_test_scaled, y_test)
 ```
 
-![image-20200722000600040](F:\tf2\image-20200722000600040.png)
+![image-20200722000600040](https://gitee.com/in_the_wind_ghx/markdownImageUpload/raw/master/img/image-20200722000526847.png)
 
 
 
